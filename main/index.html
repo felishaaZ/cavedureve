@@ -1,0 +1,123 @@
+
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CAFÉ DU RÊVE</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="app.js">
+</head>
+<body>
+
+  <header class="header">
+    <div class="brand">CAFÉ <span>DU RÊVE</span></div>
+    <nav class="nav">
+      <button class="nav-btn active" data-target="home">Home</button>
+      <button class="nav-btn" data-target="menu">Menu</button>
+      <button class="nav-btn" data-target="order">Order</button>
+    </nav>
+    <div class="actions">
+      <button id="btn-join" class="btn accent">Join</button>
+      <button id="btn-logout" class="btn ghost hidden">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME (hero) -->
+    <section id="home" class="panel">
+      <div class="bg" style="background-image:url('https://magpiesmagazine.com/wp-content/uploads/2022/03/0x0iapwk9vhvqcqj2.png?w=1024')"></div>
+      <div class="overlay"></div>
+      <div class="hero-content container" >
+        <h1>Dreamy Meals,<br/>Perfectly Served</h1>
+        <p> </p>
+        <div class="hero-actions">
+          <button class="btn primary" data-target="menu">Lihat Menu</button>
+          <button class="btn ghost" id="btn-hero-join">Join / Login</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN (overlay on same background) -->
+    <section id="join" class="panel hidden">
+      <div class="bg" style="background-image:url('https://i.pinimg.com/736x/1b/04/ea/1b04ea18f8bede8331d8a5a665317e71.jpg')"></div>
+      <div class="overlay"></div>
+
+      <div class="join-card">
+        <h2>Join CAFÉ du Rêve</h2>
+        <form id="join-form" class="join-form">
+          <input id="input-name" placeholder="Nama panggilan" required />
+          <input id="input-phone" placeholder="08xxxxxxxx" required />
+          <input id="input-email" placeholder="email@domain.com" type="email" required />
+          <div class="join-actions">
+            <button type="submit" class="btn accent">Simpan</button>
+            <button type="button" id="join-cancel" class="btn ghost">Batal</button>
+          </div>
+          <p id="join-msg" class="muted"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" class="panel hidden">
+      <div class="container">
+        <h2 class="section-title">Menu Spesial</h2>
+        <div id="menu-grid" class="menu-grid"></div>
+      </div>
+    </section>
+
+    <!-- ORDER -->
+    <section id="order" class="panel hidden">
+      <div class="container">
+        <h2 class="section-title">Pesanan Anda</h2>
+        <div class="order-wrap">
+          <div id="cart-list" class="cart-list">
+            <p class="empty">Belum ada pesanan.</p>
+          </div>
+
+          <aside class="order-summary">
+            <div class="row"><span>Total Pesanan</span><strong id="total-items">0</strong></div>
+            <div class="row"><span>Total Harga</span><strong id="total-price">Rp0</strong></div>
+
+            <div class="row">
+              <label for="payment-method">Metode Pembayaran</label>
+              <select id="payment-method">
+                <option value="Cash">Cash</option>
+                <option value="Transfer">Transfer Bank</option>
+              </select>
+            </div>
+
+            <div id="transfer-area" class="hidden">
+              <label>Upload bukti transfer (SS)</label>
+              <input id="transfer-proof" type="file" accept="image/*">
+              <div id="proof-preview"></div>
+            </div>
+
+            <div class="summary-actions">
+              <button id="clear-cart" class="btn ghost">Hapus Semua</button>
+              <button id="confirm-order" class="btn accent">Confirm Order</button>
+            </div>
+
+            <p id="order-msg" class="muted"></p>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- logout confirm modal -->
+  <div id="logout-modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <p>Yakin mau logout?</p>
+      <div class="modal-actions">
+        <button id="logout-yes" class="btn accent">Ya</button>
+        <button id="logout-no" class="btn ghost">Tidak</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+
+</html>
